@@ -199,4 +199,4 @@ stack-data==0.6.3
 starlette==0.45.3
 streamlit==1.41.1
 sympy==1.13.1
-youtube-transcript-api
+youtube-transcript-api==0.6.3
