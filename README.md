@@ -1,54 +1,41 @@
-CHAT WIIH YOUTUBE | SUMMARIZER 
-A lightweight toolkit to chat with YouTube videos — ask questions, get concise summaries, and explore video content using an LLM + RAG pipeline fed by YouTube transcripts.
+🎥 Chat with YouTube | Summarizer
 
-What it does
 
-Downloads a video's transcript (YouTube Transcript API / captions).
+A lightweight toolkit to chat with YouTube videos — ask questions, get concise summaries, and explore video content using an LLM + RAG pipeline powered by YouTube transcripts.
 
-Splits and embeds transcript chunks into a vector store.
+🔹 What it does
 
-Uses Retrieval-Augmented Generation (RAG) to answer user questions with context from the video.
+📥 Downloads a video's transcript (YouTube Transcript API / captions).
+✂️ Splits and embeds transcript chunks into a vector store.
+🤖 Uses Retrieval-Augmented Generation (RAG) to answer user questions with transcript context.
+📝 Produces short summaries, timestamps, and direct transcript quotes.
+⚡ Simple to run locally or deploy (Procfile included).
 
-Produces short summaries, timestamps, and direct quotes from the transcript.
+🌟 Key Features
 
-Built to be simple to run locally or deploy (Procfile included).
-
-Key features
-
-✅ Ask anything about a YouTube video (topic, details, quotes, timestamps).
-
+✅ Ask anything about a YouTube video (topics, details, quotes, timestamps).
 ✅ Automatic summarization (short, medium, long).
-
-✅ RAG-backed answers so the LLM cites transcript context.
-
+✅ RAG-backed answers — responses cite transcript context.
 ✅ Extensible — swap LLMs, vector DBs, or transcript sources easily.
 
-High-level architecture
+🏗️ High-Level Architecture
 
-YouTube Transcript API → fetch captions / transcript for a video ID / URL.
+YouTube Transcript API → fetch captions/transcript for a video ID / URL.
+Text splitter → chunk transcript while preserving context & timestamps.
+Embeddings → convert chunks into vectors (OpenAI / other models).
+Vector store → FAISS / Chroma / Pinecone (local or cloud).
+Retriever + LLM → retrieve top-k chunks, feed into LLM for synthesis (RAG).
+Output → concise answer + summary + transcript snippets with timestamps.
 
-Text splitter → break transcript into chunks (preserve short context + timestamps).
+🚀 Quickstart
 
-Embeddings → convert chunks into vectors (OpenAI / other embedding model).
+Example assumes Python and repo includes check.py + requirements.txt.
 
-Vector store → FAISS / Chroma / Pinecone (local or cloud) to store and search chunks.
-
-Retriever + LLM → retrieve top-k chunks for a query, pass to LLM to synthesize an answer (RAG).
-
-Output → answer, short summary, highlighted transcript snippets with timestamps.
-
-Quickstart (recommended)
-
-Example assumes Python and the repository layout includes check.py and requirements.txt.
-
-Clone the repo:
-
+1️⃣ Clone the repo:
 git clone https://github.com/HAMzAliKj/Chats_With_Youtube.git
 cd Chats_With_Youtube
 
-
-Create a virtual environment and install:
-
+2️⃣ Create a virtual environment & install dependencies:
 python -m venv .venv
 source .venv/bin/activate   # macOS / Linux
 .venv\Scripts\activate      # Windows
